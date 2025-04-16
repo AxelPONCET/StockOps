@@ -21,7 +21,6 @@ CREATE TABLE USER (
 CREATE TABLE INVENTORY (
     inventory_id INT PRIMARY KEY,
     name VARCHAR(255),
-    creation_date DATE,
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES USER(user_id)
 );
