@@ -10,7 +10,7 @@ COMMIT;
 BEGIN;
 
 -- USER table
-CREATE TABLE USER (
+CREATE TABLE USERS (
     user_id INT PRIMARY KEY,
     name VARCHAR(255),
     email VARCHAR(255) UNIQUE,
@@ -22,7 +22,7 @@ CREATE TABLE INVENTORY (
     inventory_id INT PRIMARY KEY,
     name VARCHAR(255),
     user_id INT,
-    FOREIGN KEY (user_id) REFERENCES USER(user_id)
+    FOREIGN KEY (user_id) REFERENCES USERS(user_id)
 );
 
 -- PRODUCT table
@@ -31,7 +31,7 @@ CREATE TABLE PRODUCT (
     name VARCHAR(255),
     reference TEXT,
     batch_number TEXT,
-    expiration_date DATE
+    expiration_date DATE,
     purchase_url TEXT
 );
 

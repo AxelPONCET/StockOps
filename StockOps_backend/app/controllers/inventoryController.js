@@ -136,3 +136,5 @@ const inventoryController = {
 
 
 }
+
+export default inventoryController;

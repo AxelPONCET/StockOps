@@ -1,6 +1,6 @@
 import { sequelize, User, Product, Inventory } from "../models/associations.js"
 
-const ProductController = {
+const productController = {
 
     // POST a Product
 
@@ -29,7 +29,7 @@ const ProductController = {
 
     // PATCH one Product
 
-    async patchOneProduct(req, res, next) {
+    async updateProduct(req, res, next) {
         const productId = req.params.productId;
         const { name, reference, batch_number, expiration_date, purchase_url } = req.body;
 
@@ -59,7 +59,7 @@ const ProductController = {
 
     // DELETE one Product
 
-    async deleteOneProduct(req, res, next) {
+    async deleteProduct(req, res, next) {
         const productId = req.params.productId;
 
         try {
@@ -79,3 +79,5 @@ const ProductController = {
 
 
 }
+
+export default productController;
