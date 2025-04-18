@@ -1,5 +1,5 @@
 
-import sequelize from "./connect";
+import sequelize from "./connect.js";
 import { DataTypes, Model } from "sequelize";
 
 class Product extends Model { }
@@ -11,7 +11,7 @@ Product.init({
         autoIncrement: true,
     },
     name: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING(255),
         allowNull: false,
     },
     reference: {

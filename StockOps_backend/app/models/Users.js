@@ -1,34 +1,32 @@
-import sequelize from "./connect";
+import sequelize from "./connect.js";
 import { DataTypes, Model } from "sequelize";
 
-class User extends Model { }
+class Users extends Model { }
 
-User.init({
+Users.init({
     user_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
     name: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING(255),
         allowNull: false,
     },
     email: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING(255),
         allowNull: false,
         unique: true
     },
     password: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING(255),
         allowNull: false,
     },
-
-
 
 },
     {
         sequelize,
-        tableName: "user",
+        tableName: "users",
     });
 
-export default User;
+export default Users;

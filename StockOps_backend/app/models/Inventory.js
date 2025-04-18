@@ -1,4 +1,4 @@
-import sequelize from "./connect";
+import sequelize from "./connect.js";
 import { DataTypes, Model } from "sequelize";
 
 class Inventory extends Model { }
@@ -10,7 +10,7 @@ Inventory.init({
         autoIncrement: true,
     },
     name: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING(255),
         allowNull: false,
     },
     user_id: {

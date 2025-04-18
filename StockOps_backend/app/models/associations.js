@@ -1,12 +1,12 @@
-import sequelize from "./connect";
-import Inventory from "./Inventory";
-import Product from "./Product";
-import User from "./User";
-import InventoryProduct from "./InventoryProduct";
+import sequelize from "./connect.js";
+import Inventory from "./Inventory.js";
+import Product from "./Product.js";
+import Users from "./Users.js";
+import InventoryProduct from "./InventoryProduct.js";
 
 // User <-> Inventory association
-User.hasMany(Inventory, { as: "inventory", foreignKey: "user_id" });
-Inventory.belongsTo(User, { as: "user", foreignKey: "user_id" });
+Users.hasMany(Inventory, { as: "inventory", foreignKey: "user_id" });
+Inventory.belongsTo(Users, { as: "users", foreignKey: "user_id" });
 
 // Inventory <-> InventoryProduct <-> Product association
 Inventory.belongsToMany(Product, {
@@ -24,6 +24,6 @@ Product.belongsToMany(Inventory, {
 })
 
 export {
-    sequelize, Inventory, Product, User, InventoryProduct
+    sequelize, Inventory, Product, Users, InventoryProduct
 }
 

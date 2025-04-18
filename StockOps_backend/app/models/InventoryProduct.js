@@ -1,4 +1,4 @@
-import sequelize from "./connect";
+import sequelize from "./connect.js";
 import { DataTypes, Model } from "sequelize";
 
 class InventoryProduct extends Model { }
@@ -33,4 +33,4 @@ InventoryProduct.init({
         tableName: "inventory_product",
     });
 
-export default Inventory;
+export default InventoryProduct;

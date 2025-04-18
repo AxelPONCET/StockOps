@@ -1,16 +1,14 @@
 BEGIN;
-DROP TABLE IF EXISTS game CASCADE;
-DROP TABLE IF EXISTS player CASCADE;
-DROP TABLE IF EXISTS challenge CASCADE;
-DROP TABLE IF EXISTS proposition CASCADE;
-DROP TABLE IF EXISTS vote_challenge CASCADE;
-DROP TABLE IF EXISTS vote_proposition CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS inventory CASCADE;
+DROP TABLE IF EXISTS product CASCADE;
+DROP TABLE IF EXISTS inventory_product CASCADE;
 COMMIT;
 
 BEGIN;
 
 -- USER table
-CREATE TABLE USERS (
+CREATE TABLE users (
     user_id INT PRIMARY KEY,
     name VARCHAR(255),
     email VARCHAR(255) UNIQUE,
@@ -18,15 +16,15 @@ CREATE TABLE USERS (
 );
 
 -- INVENTORY table
-CREATE TABLE INVENTORY (
+CREATE TABLE inventory (
     inventory_id INT PRIMARY KEY,
     name VARCHAR(255),
     user_id INT,
-    FOREIGN KEY (user_id) REFERENCES USERS(user_id)
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 -- PRODUCT table
-CREATE TABLE PRODUCT (
+CREATE TABLE product (
     product_id INT PRIMARY KEY,
     name VARCHAR(255),
     reference TEXT,
@@ -36,11 +34,13 @@ CREATE TABLE PRODUCT (
 );
 
 -- INVENTORY_PRODUCT (junction table for many-to-many relationship)
-CREATE TABLE INVENTORY_PRODUCT (
+CREATE TABLE inventory_product (
     product_id INT,
     inventory_id INT,
     quantity INT,
     PRIMARY KEY (product_id, inventory_id),
-    FOREIGN KEY (product_id) REFERENCES PRODUCT(product_id),
-    FOREIGN KEY (inventory_id) REFERENCES INVENTORY(inventory_id)
+    FOREIGN KEY (product_id) REFERENCES product(product_id),
+    FOREIGN KEY (inventory_id) REFERENCES inventory(inventory_id)
 );
+
+COMMIT;

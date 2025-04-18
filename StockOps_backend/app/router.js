@@ -39,3 +39,5 @@ router.delete("/api/product/:productId", productController.deleteProduct);
 // Login
 
 router.post("/api/login", authentificationController.login);
+
+export default router;

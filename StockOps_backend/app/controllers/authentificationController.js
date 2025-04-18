@@ -1,6 +1,6 @@
 import jsonwebtoken from "jsonwebtoken";
 import argon2 from "argon2";
-import { Inventory, Product, User } from "../models/associations.js"
+import { Inventory, Product, Users } from "../models/associations.js"
 
 
 const secret = process.env.SECRET;
@@ -11,7 +11,7 @@ const authentificationController = {
         if (!email || !password) return res.status(400).json({ error: "Missing parameters" });
 
         try {
-            const user = await User.findOne({ where: { email } });
+            const user = await Users.findOne({ where: { email } });
             if (!user) return res.status(400).json({ error: "User not found" });
 
             const validPassword = await argon2.verify(user.password, password)
@@ -50,7 +50,7 @@ const authentificationController = {
             return res.status(400).json({ error: "Missing user id" });
         }
         try {
-            const user = await User.findByPk(id);
+            const user = await Users.findByPk(id);
             if (!user) {
                 return res.status(404).json({ error: "User not found" });
             }

@@ -1,4 +1,4 @@
-import { sequelize, User, Product, Inventory } from "../models/associations.js"
+import { sequelize, Users, Product, Inventory } from "../models/associations.js"
 
 const productController = {
 
