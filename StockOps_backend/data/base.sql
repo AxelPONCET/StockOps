@@ -1,15 +1,18 @@
 BEGIN;
-DROP TABLE IF EXISTS users CASCADE;
+
+-- Suppression des tables existantes si elles existent
+DROP TABLE IF EXISTS inventory_product CASCADE;
 DROP TABLE IF EXISTS inventory CASCADE;
 DROP TABLE IF EXISTS product CASCADE;
-DROP TABLE IF EXISTS inventory_product CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+
 COMMIT;
 
 BEGIN;
 
 -- USER table
 CREATE TABLE users (
-    user_id INT PRIMARY KEY,
+    user_id SERIAL PRIMARY KEY,  -- SERIAL pour auto-incrémentation dans PostgreSQL
     name VARCHAR(255),
     email VARCHAR(255) UNIQUE,
     password VARCHAR(255)
@@ -17,7 +20,7 @@ CREATE TABLE users (
 
 -- INVENTORY table
 CREATE TABLE inventory (
-    inventory_id INT PRIMARY KEY,
+    inventory_id SERIAL PRIMARY KEY,  -- SERIAL pour auto-incrémentation
     name VARCHAR(255),
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
@@ -25,7 +28,7 @@ CREATE TABLE inventory (
 
 -- PRODUCT table
 CREATE TABLE product (
-    product_id INT PRIMARY KEY,
+    product_id SERIAL PRIMARY KEY,  -- SERIAL pour auto-incrémentation
     name VARCHAR(255),
     reference TEXT,
     batch_number TEXT,
@@ -33,7 +36,7 @@ CREATE TABLE product (
     purchase_url TEXT
 );
 
--- INVENTORY_PRODUCT (junction table for many-to-many relationship)
+-- INVENTORY_PRODUCT (table de jonction pour la relation many-to-many)
 CREATE TABLE inventory_product (
     product_id INT,
     inventory_id INT,
@@ -44,3 +47,4 @@ CREATE TABLE inventory_product (
 );
 
 COMMIT;
+

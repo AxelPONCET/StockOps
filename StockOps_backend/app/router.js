@@ -30,7 +30,7 @@ router.delete("/api/inventory/:inventoryId", inventoryController.deleteOneInvent
 
 // Product
 
-router.post("/api/product", productController.addProduct);
+router.post("/api/product/:inventoryId", productController.addProduct);
 
 router.patch("/api/product/:productId", productController.updateProduct);
 

@@ -13,7 +13,7 @@ Inventory.belongsToMany(Product, {
     through: InventoryProduct,
     foreignKey: "inventory_id",
     otherKey: "product_id",
-    as: "products"
+    as: "product"
 })
 
 Product.belongsToMany(Inventory, {

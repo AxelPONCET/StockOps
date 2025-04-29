@@ -90,7 +90,7 @@ const inventoryController = {
 
     async updateInventory(req, res, next) {
         const inventoryId = req.params.inventoryId;
-        const name = req.body;
+        const { name } = req.body;
 
         try {
             const inventory = await Inventory.findByPk(inventoryId);
@@ -99,7 +99,12 @@ const inventoryController = {
                 return res.status(404).json({ message: "Inventaire non trouvé." });
             }
 
-            if (name && name !== undefined) inventory.name = name;
+            // Vérifie si name est une chaîne valide (non vide)
+            if (typeof name === 'string' && name.trim() !== '') {
+                inventory.name = name;
+            } else {
+                return res.status(400).json({ message: "Nom invalide." });
+            }
 
             await inventory.save();
 

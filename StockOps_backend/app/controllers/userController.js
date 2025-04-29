@@ -1,5 +1,6 @@
 
 import { sequelize, Users, Product, Inventory, InventoryProduct } from "../models/associations.js"
+import argon2 from "argon2";
 
 const userController = {
 
@@ -11,7 +12,7 @@ const userController = {
 
         try {
             const user = await Users.findByPk(userId, {
-                attributes: ["user_id", "name"],
+                attributes: ["user_id", "name", "email"],
                 include: [
                     {
                         model: Inventory,
@@ -23,7 +24,7 @@ const userController = {
                         ],
                         include: {
                             model: Product,
-                            as: "products",
+                            as: "product",
                             through: {
                                 model: InventoryProduct,
                                 as: "inventory_product",
@@ -45,14 +46,19 @@ const userController = {
 
     async addUser(req, res, next) {
         const { name, email, password } = req.body;
+        console.log(name, email, password);
+        
         if (!name || !email || !password) return res.status(400).json({ error: "Missing parameters" });
+
         try {
             let user = await Users.findOne({ where: { email } });
             if (user) {
                 return res.status(409).json({ error: "Email already used" });
             }
             const hash = await argon2.hash(password);
-            user = await Users.create({ name, email, password: hash });
+            user = await Users.create({name, email, password: hash });
+            console.log(user);
+            
             res.status(201).json(user);
         } catch (error) {
             next(error);
@@ -73,7 +79,7 @@ const userController = {
             const user = await Users.findByPk(userId);
             if (!user) return res.status(404).json({ error: "User not found" });
 
-            verifUser = await Users.findOne({ where: { email: email } });
+            const verifUser = await Users.findOne({ where: { email: email } });
             if (verifUser) return res.status(409).json({ error: "Email already used" });
 
             if (!password) {
