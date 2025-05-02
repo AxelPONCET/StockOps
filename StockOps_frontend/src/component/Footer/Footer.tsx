@@ -4,7 +4,9 @@ function Footer(){
 
 
     return(
-        <p>Footer</p>
+        <footer className="footer">
+            <p>©Copyright Axel Poncet 2025</p>
+        </footer>
     )
 }
 

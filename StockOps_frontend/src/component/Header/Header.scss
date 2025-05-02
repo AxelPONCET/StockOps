@@ -55,7 +55,7 @@
 }
 
  // Burger Menu
- .navSide{
+ .navSideMobile{
     position: fixed;
     top: 250px;
     left: 0;
@@ -63,7 +63,7 @@
     width: 100%;
     
     transform: translateY(-250px);
-    animation: slideBurgerMenuOpen 0.2s forwards;
+    animation: slideBurgerMenuOpen 0.3s forwards;
     .headerNavList{
         z-index: 1;
         display: flex;
@@ -84,6 +84,11 @@
             font-style: normal;
             text-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
             border-bottom: solid 1px $primaryTitleColor ;
+        }
+
+        .headerNavList__item:hover{
+            scale: 1.1;
+            transition: ease-in-out 0.2s;
         }
 
     }
