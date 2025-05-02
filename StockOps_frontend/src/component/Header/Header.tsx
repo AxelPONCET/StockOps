@@ -17,6 +17,16 @@ function Header() {
         <div className="titleSide">
           <h1 className="headerTitle">StockOps</h1>
         </div>
+        {/* Navigation format desktop */}
+        <div className="navSideDesktop">
+            <nav className="headerNav">
+              <ul className="headerNavList">
+                <li className="headerNavList__item">Dashboard</li>
+                <li className="headerNavList__item">Login</li>
+                <li className="headerNavList__item">Register</li>
+              </ul>
+            </nav>
+          </div>
         {/* Boutton du menu burger visible seulement en format mobile */}
         <button
           className="burgerMenuButton"
@@ -31,7 +41,7 @@ function Header() {
       </header>
        {/* Navigation caché en format mobile dépliable avec le burgerMenuButton */}
        {menuIsOpen ? (
-          <div className="navSide">
+          <div className="navSideMobile">
             <nav className="headerNav">
               <ul className="headerNavList">
                 <li className="headerNavList__item">Dashboard</li>

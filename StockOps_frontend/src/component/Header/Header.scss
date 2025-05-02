@@ -14,6 +14,9 @@
     position: relative;
     z-index: 10;
 
+    .navSideDesktop{
+        display: none;
+    }
  
     // Titre principale
     .titleSide{
@@ -60,7 +63,7 @@
     width: 100%;
     
     transform: translateY(-250px);
-    animation: slideBurgerMenuOpen 0.5s forwards;
+    animation: slideBurgerMenuOpen 0.2s forwards;
     .headerNavList{
         z-index: 1;
         display: flex;
@@ -71,7 +74,6 @@
         padding: 0;
         list-style: none;
         .headerNavList__item{
-            z-index: 1;
             color: $primaryTitleColor;
             width: 100%;
             text-align: center;
@@ -108,3 +110,76 @@
 }
 
 //* Desktop Version *//
+
+@media (min-width: 1000px){
+    .header{
+        height: 18%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+
+         // Titre principale
+    .titleSide{
+        padding-left: 5%;
+        width: 50%;
+        max-height: 100%;
+        color: $primaryTitleColor;
+        background-color: $secondaryBackgroundColor ;
+        font-size: 2dvw;
+        font-weight: 0;
+        .headerTitle{
+            font-family: "Modak", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            text-shadow: 0px 0.3dvw 1px rgba(0, 0, 0, 0.25);
+        }
+    };
+
+        .navSideDesktop{
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            flex-flow: row nowrap;
+            list-style: none;
+            .headerNavList{
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-around;
+                align-items: center;
+                gap: 10%;
+                padding: 0;
+                list-style: none;
+                .headerNavList__item{
+                    color: $primaryTitleColor;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 2dvw;
+                    font-weight: 0;
+                    font-family: "Modak", system-ui;
+                    font-weight: 400;
+                    font-style: normal;
+                    text-shadow: 0px 0.3dvw 1px rgba(0, 0, 0, 0.25);
+                    transition: ease-in-out 0.2s;
+                }
+
+                .headerNavList__item:hover{
+                    scale: 1.1;
+                    transition: ease-in-out 0.2s;
+                }
+        
+            }
+        }
+
+        .burgerMenuButton{
+            display: none;
+        }
+
+        .navSideMobile{
+            display: none;
+        }
+    }
+
+
+
+}
