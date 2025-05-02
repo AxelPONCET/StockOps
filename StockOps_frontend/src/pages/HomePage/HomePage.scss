@@ -1,0 +1,76 @@
+@use "../../variables.scss" as *;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.homepageContainer{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+
+    section{
+        padding: 20px;
+        display:flex;
+        flex-flow: column nowrap;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .firstSection{
+        background-color: $tertiaryBackgroundColor;
+        border-bottom: solid 2px $primaryTitleColor;
+    }
+
+    .sectionTitle{
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    .sectionParagraph{
+        font-size: 0.8rem
+    }
+    .sectionPicture{
+        border-radius: 8px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .homepageContainer{
+        width: 100%;
+        section{
+            padding: 2dvw;
+            display:flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            gap: 20px;
+            max-width: 100%;
+            article{
+                width: 50%;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-between;
+                align-items: start;
+                padding: 5dvw;
+            }
+        }
+    
+        .firstSection{
+            border-bottom: solid 0.2dvw $primaryTitleColor;
+        }
+    
+        .sectionTitle{
+            font-size: 1.5dvw;
+        }
+        .sectionParagraph{
+            font-size: 1dvw
+        }
+        .sectionPicture{
+            border-radius: 8px;
+            width: 50%;
+        }
+    }
+}

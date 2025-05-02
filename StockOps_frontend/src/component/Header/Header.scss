@@ -56,7 +56,7 @@
 
  // Burger Menu
  .navSideMobile{
-    position: fixed;
+    position: absolute;
     top: 250px;
     left: 0;
     background-color: $secondaryBackgroundColor;
@@ -118,7 +118,7 @@
 
 @media (min-width: 1000px){
     .header{
-        height: 18%;
+        height: 15dvh;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-around;
