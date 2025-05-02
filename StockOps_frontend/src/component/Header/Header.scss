@@ -1,6 +1,8 @@
 @use "../../variables.scss" as *;
 @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
 
+//* MOBILE FIRST *//
+
 .header{
     background-color: $secondaryBackgroundColor ;
     height: 250px;
@@ -10,10 +12,13 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    z-index: 10;
 
+ 
     // Titre principale
     .titleSide{
         color: $primaryTitleColor;
+        background-color: $secondaryBackgroundColor ;
         font-size: 30px;
         font-weight: 0;
         .headerTitle{
@@ -24,10 +29,7 @@
         }
     };
 
-    // Navigation 
-    .navSide{
-        display: none;
-    }
+   
 
     // Boutton Burger Menu 
     .burgerMenuButton{
@@ -38,7 +40,8 @@
         align-items: center;
         position: absolute;
         bottom: 0;
-
+        border: none;
+        background-color: $secondaryBackgroundColor;
         .separator{
             background-color: $primaryTitleColor;
             width: 80%;
@@ -47,3 +50,61 @@
     }
 
 }
+
+ // Burger Menu
+ .navSide{
+    position: fixed;
+    top: 250px;
+    left: 0;
+    background-color: $secondaryBackgroundColor;
+    width: 100%;
+    
+    transform: translateY(-250px);
+    animation: slideBurgerMenuOpen 0.5s forwards;
+    .headerNavList{
+        z-index: 1;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+        gap: 5px;
+        padding: 0;
+        list-style: none;
+        .headerNavList__item{
+            z-index: 1;
+            color: $primaryTitleColor;
+            width: 100%;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 0;
+            font-family: "Modak", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            text-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+            border-bottom: solid 1px $primaryTitleColor ;
+        }
+
+    }
+}
+
+@keyframes slideBurgerMenuOpen{
+    0% {
+        transform: translateY(-250px);
+      }
+      100% {
+        transform: translateY(0);
+      
+}
+}
+
+@keyframes slideBurgerMenuClose{
+    0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-250px);
+      
+}
+}
+
+//* Desktop Version *//
