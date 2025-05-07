@@ -1,0 +1,110 @@
+@use "../../variables.scss" as *;
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+.registerPageContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 100dvh;
+
+  .registerForm {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-family: "Modak", system-ui;
+    font-weight: 400;
+    color: $primaryTitleColor;
+    text-align: center;
+  }
+
+  .formGroup {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: start;
+    width: 300px;
+    height: 100%;
+    padding: 0 20px;
+    label {
+      font-family: "Comfortaa", sans-serif;
+      font-size: 0.8rem;
+      color: $secondaryBackgroundColor;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      height: 2rem;
+      font-family: "Comfortaa", sans-serif;
+      color: $secondaryBackgroundColor;
+      border: solid 2px black;
+      font-size: 0.8rem;
+      border-radius: 8px;
+      padding-left: 10px;
+    }
+  }
+
+  .registerButton {
+    width: 200px;
+    height: 2rem;
+    font-family: "Comfortaa", sans-serif;
+    background-color: $tertiaryBackgroundColor;
+    color: white;
+    border: solid 2px $secondaryBackgroundColor;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $secondaryBackgroundColor;
+      color: $primaryTitleColor;
+      box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .registerPageContainer {
+    width: 100%;
+    height: 100%;
+    .registerForm {
+      width: 50%;
+      height: 50%;
+      padding: 2dvw;
+      gap: 1dvw;
+    }
+    h1 {
+      font-size: 2dvw;
+    }
+    .formGroup {
+      width: 100%;
+      height: 100%;
+      padding: 0 2dvw;
+      label {
+        font-size: 1dvw;
+      }
+      input {
+        width: 100%;
+        height: 2dvw;
+        font-size: 1dvw;
+        padding-left: 1dvw;
+      }
+    }
+    .registerButton {
+      width: 20dvw;
+      height: 2dvw;
+      font-size: 1dvw;
+    }
+  }
+}

@@ -19,7 +19,7 @@ function HomePage() {
             </p>
           </div>
         </article>
-        <img src="../../../public/picture1.webp" alt="" className="sectionPicture" />
+        <img src="/picture1.webp" alt="" className="sectionPicture" />
       </section>
       <section className="secondSection">
         <article>
@@ -37,7 +37,7 @@ function HomePage() {
             </p>
           </div>
         </article>
-        <img src="../../../public/picture2.webp" alt="" className="sectionPicture" />
+        <img src="/picture2.webp" alt="" className="sectionPicture" />
       </section>
     </main>
   );
